@@ -39,7 +39,7 @@ function Comment(json) {
   //Created a comment prototype using the comment object that will save the comment attributes and return those attribute in a paragraph.
 Comment.prototype.renderP = function() {    return "<p>" + this.body + " " +
 "by" + " " + "<strong>" +  this.username + "</strong>" + "</p>" //this.name  }
-
+}
  $(function() {
   $("form#new_comment").on("submit", function(e) {
     e.preventDefault();

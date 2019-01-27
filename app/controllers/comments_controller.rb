@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
           flash[:success] = 'Comment posted!'
           redirect_to movie_path(@movie)
       end
-      format.js do
+      format.json do
         render :json => @comment
     end
   end
