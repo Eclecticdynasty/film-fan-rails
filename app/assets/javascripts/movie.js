@@ -54,15 +54,15 @@ Comment.prototype.renderP = function() {    return "<p>" + this.body + " " +
         method: "POST"
       })
       .done(function(json) {
-        $('form#new_comment').trigger('reset');
-        //$("#new_comment > p > input[type="submit"]").trigger('reset');
-        //#new_comment > p > input[type="submit"]
+        $('form#new_comment input:submit').prop('disabled', false);
 
         
        var comment = new Comment(json)
        var commentP = comment.renderP()
 
        $(".new").append(commentP)
+
+       // $(#my_button).disabled = false
   
      })
 
@@ -71,6 +71,13 @@ Comment.prototype.renderP = function() {    return "<p>" + this.body + " " +
     })
   })
 });
+
+//  function resetForm(new_comment) {
+//  $('#' + new_comment + ' :input').each(function(){  
+//    $(this).val('').attr('checked',false).attr('selected',false);
+//  });
+// }
+ 
 
 
 
