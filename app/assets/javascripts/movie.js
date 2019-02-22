@@ -4,7 +4,14 @@ $(function() {
       method: "GET",
       url: `${this.href}.json`
     }).done(function(response){
-      const result = response.filter(resp => resp.body.length > 4)
+      const result = response.sort(function(a,b) {
+          if (a.body > b.body) {
+            return 1;
+          } else if (a.body < b.body) {
+            return -1;
+          } else
+          return 0;
+      })
 
       $("div.comments").html(result.map(resp => {
         return `<p><strong> ${resp.user.username} </strong>: ${resp.body} </p>`
